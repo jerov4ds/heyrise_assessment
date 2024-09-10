@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=heyrisebackenddev
+      - POSTGRES_PASSWORD=holduphisselfgrizzly
+      - POSTGRES_DB=local_dev
+    ports:
+      - '6435:5432'
+    volumes: 
+      - db-calendar-assessment:/var/lib/postgresql/data
+volumes:
+  db-calendar-assessment:
+    driver: local
